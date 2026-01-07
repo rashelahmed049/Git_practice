@@ -1,0 +1,61 @@
+git commands:
+
+1. git config --global user.name "name"  -> To set profile name for gith
+2. git config --global user.email abc@gmail.com -> here "" not required to set the email
+3. git config --global init.default branch main -> initialise the branch name , here it is main, it can be anything, "" not required.
+4. git config -h -> gives all the list of commands and its detailed summary.
+5. git help config -> gives all the list of commands in more detailed way in a new webpage(internet not required)
+6. clear -> to clear the bash screen
+7. Now suppose we want to create a git for a particular folder where our files are stored, so we move into that folder in the bash using the command
+	- cd c:/user/rasel/python_files 
+	- git init -> now a hidden folder as git will be initialise in this file location which will keep track of any updation to any files done in this folder
+	- git status -> gives what files are present in the current folder or any folder is being tracked/untracked (if a file is untracked it wont effect anything in git because)
+	- git add a.txt -> to track any file in that folder
+	- git add -all -> to track all the files
+	- git add -A -> to track all the files
+	- git add . -> to track all the files
+	- git rm --cached a.txt -> to make untrack.branc
+	suppose there is a very important file which we don't want others to see it in our git we can also do that
+	- we create a file with extension as .gitignore
+	- open it as notepad 
+	- # ignore all .txt files -> ignores all .txt files
+	- * .txt - > ignore all .txt files
+	-  git status -> to verify if git ignored
+commit:
+	Its like taking a snapsot of git at current time, it's like finalizing the repository after all the changes we make
+	git commit -m "My first commit" -> we can give any message 
+	Now type git status -> we see a message as no files to commit since we didn't do any updation of any files
+
+Now suppose after commit we change the content of any file outside the git folder in the same location, now to see the changes we type
+	- git status -> in red mark we will see which file has been updated/modified
+	- git diff -> it displays the file name which has been changed , the red text are the text before update and green are the ones after update.
+
+Suppose we make a change in file a.txt and we want it to be added in git history books so to achieve it
+	- git add a.txt -> file sits in staging
+	- git restore --stagged a.txt -> remove from staging(history books)
+	- git commit -a -m "done updating and committed"
+	- git rm "filename" -> to delete a file from the folder
+	- git restore "filename" -> to restore that file in the folder
+	- git mv "a.txt" "b.txt" -> rename a file
+
+git log -> to view all the different commits
+git log --one line > to view commits in different 
+git log -p -> to view all the recent commits
+git rebase -i --root -> to reindex the commits as per our wish
+
+
+suppose we want to work on some bug to fix it but without manipulating the original branch so we create another branch as 
+git branch branchname
+git branch -> to view total branch in our git
+git switch branchname -> to switch to a particular branch 
+but before that make sure to commit
+
+now suppose i edited something in a branch and i want to git it to b branch then
+	- git switch b
+	- git merge -m 'message' a
+	while merging we get error, so we open the file and see the file - it will have two portions as head>>> the part in the main branch >>>branchname-> text we want to keep it . It will be in the bottom part of the file , so delete the part which is not required and save the file.
+now after merging the updated file to the desired branch we no longer want to b branch so we can delete it 
+	- git branch -d branchnametobedeleted
+	- git switch -c branchname -> to create and switch to a branch at once
+
+touch filename.txt -> to create a file in git bash
